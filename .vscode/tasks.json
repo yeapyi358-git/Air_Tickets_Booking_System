@@ -11,6 +11,7 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "mainmenu.cpp",
                 "flightsearch.cpp",
+                "flightbooking.cpp",
                 "-Wall",
                 "-Wconversion"
             ],

@@ -1,9 +1,9 @@
 #ifndef FLIGHTBOOKING_HPP
 #define FLIGHTBOOKING_HPP
 
-void flightSelection();
-void destinationChoice1();
-void cabinChoice1();
-void cabinCHoice2();
+using namespace std;
+
+void flightBooking();
+void information();
 
 #endif

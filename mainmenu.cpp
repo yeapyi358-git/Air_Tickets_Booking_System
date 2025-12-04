@@ -1,8 +1,10 @@
 #include "mainmenu.hpp"
 #include "flightsearch.hpp"
+#include "flightbooking.hpp"
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,29 +22,35 @@ void mainMenu()
 
     do
     {
-    cout << "                  !!!WELCOME!!!                 " << endl;
-    cout << "************************************************" << endl;
-    cout << "*                   MAIN MENU                  *" << endl;
-    cout << "************************************************" << endl;
-    cout << "1.Search for flight" << endl;
-    cout << "2.Book your flight tickets" << endl;
-    cout << "3.Log out" << endl;
-    cout << "************************************************" << endl;
+    cout << "\t\t\t\t ____________________________________" << endl;
+    cout << "\t\t\t\t|                                    |" << endl;
+    cout << "\t\t\t\t|            !!!WELCOME!!!           |" << endl;
+    cout << "\t\t\t\t|                  TO                |" << endl;
+    cout << "\t\t\t\t|         ***ROYAL AIRLINES***       |" << endl;
+    cout << "\t\t\t\t|____________________________________|" << endl;
+    cout << "\n\t\t\t\t**************************************" << endl;
+    cout << "\t\t\t\t*                                    *" << endl;
+    cout << "\t\t\t\t*              MAIN MENU             *" << endl;
+    cout << "\t\t\t\t*                                    *" << endl;
+    cout << "\t\t\t\t**************************************" << endl;
+    cout << "\n\t\t\t\t1.Search for flight" << endl;
+    cout << "\t\t\t\t2.Book your flight tickets" << endl;
+    cout << "\t\t\t\t3.Log out\n" << endl;
+    cout << "\t\t\t\t**************************************" << endl;
     cout << "Please enter your choice: " ;
     cin >> choice;
-    cout << "------------------------------------------------\n\n" << endl;
  
     //This is to avoid infinite loop or any error when user accidentally enter non integer
     if (cin.fail())
     {
         cin.clear(); 
-        cin.ignore(512, '\n');
+        cin.ignore(500, '\n');
     }
 
    
     if (choice < 1|| choice > 3)
     {
-        cout << "Invalid choice! Please only enter integer number(1-3)\n"<< endl;
+        cout << "\nInvalid choice! Please only enter integer number(1-3)\n"<< endl;
     }
     else 
     {
@@ -53,11 +61,13 @@ void mainMenu()
         break;
 
         case 2:
-        cout << "Booking feature not implemented yet.\n" << endl;
+        flightBooking();
         break;
 
         case 3:
-        cout << "Logging out...\n"<< endl;
+        cout << "Logging out..."<< endl;
+        cout << "Successfully Logged Out\n";
+        exit(0);
         break;
 
        }

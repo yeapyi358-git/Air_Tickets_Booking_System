@@ -7,6 +7,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <limits>
 #include <cstdlib>//for exit
 
 using namespace std;
@@ -29,7 +30,7 @@ void flightBooking()
     };
 
     // used for the file so that when store in the file, it store the exact destination,time,cabin class 
-    string Cabin[]={"Economy","Business", "First Class"};
+    string Cabin[3]={"Economy","Business", "First Class"};
     string Time[6][3] = {
         { "11:20pm - 5:25am+1", "9:15am - 3:25pm", "10:25am - 7:30pm+1" },   // London
         { "6:00pm - 12:05am", "9:30am - 3:10pm", "7:20pm - 12:05am" },       // Beijing
@@ -38,7 +39,7 @@ void flightBooking()
         { "8:55pm - 10:00pm", "6:00am - 7:05am", "10:55am - 12:00pm" },      // Kuala Lumpur
         { "8:55pm - 10:30pm", "6:00am - 10:30am", "10:55am - 1:45pm" }       // Kota Kinabalu
     };
-    string Flights[]={"London","Beijing","New York","Langkawi","Kuala Lumpur","Kota Kinabalu"};
+    string Flights[6]={"London","Beijing","New York","Langkawi","Kuala Lumpur","Kota Kinabalu"};
 
     cout << "\n\t\t\t\t**************************************" << endl;
     cout << "\t\t\t\t*                                    *" << endl;
@@ -48,16 +49,17 @@ void flightBooking()
 
     for(int i=0;i<6;i++)
     {
-       cout <<"\t\t\t\t"<<(i+1)<<". Flight to "<< Flights[i] << endl;
+       cout <<"\t\t\t\t"<<(i+1)<<". Flight to "<< Flights[i]  << endl;
     }
 
     cout << "\t\t\t\t7. Exit to  main menu"  << endl;
+    cout << "\t\t\t\t**************************************" << endl;
     cout <<"\nPlease enter your destinatination: ";
     cin >> destination;
     if (cin.fail())
     {
         cin.clear(); 
-        cin.ignore(500, '\n');
+        cin.ignore(numeric_limits <int>::max(), '\n');
     }
 
     switch (destination)
@@ -72,41 +74,30 @@ void flightBooking()
                 cout << "\nPlease select the time of the flight: ";
                 cin >> time;
 
-                if (cin.fail())
+                if (cin.fail()||time < 1 || time >3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
 
-                else if (time < 1 || time >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (time < 1||time > 3);
+            }while (cin.fail() ||time < 1||time > 3);
             
             do{
                 cout << "\n\t\t\t\t\tChoose Your Cabin Class!!\n"<< endl;
                 cout << "\t\t\t\t1.Economy           MYR 3500" << endl;
                 cout << "\t\t\t\t2.Business          MYR 9000" << endl;
                 cout << "\t\t\t\t3.First Class       MYR 26000" << endl;
-                cout << "\nPlease enter your Choice: ";
+                cout << "\nPlease enter your choice: ";
                 cin >> cabin;
 
-                if (cin.fail())
+                if (cin.fail()||cabin < 1 || cabin >3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
-
-                else if (cabin < 1 || cabin >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (cabin < 1 || cabin >3);
+            }while (cin.fail() ||cabin < 1 || cabin >3);
 
             break;
             
@@ -122,40 +113,28 @@ void flightBooking()
                 cout << "\nPlease select the time of the flight: ";
                 cin >> time;
 
-                if (cin.fail())
+                if (cin.fail()||time < 1 || time >3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
-
-                else if (time < 1 || time >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (time < 1||time > 3);
+            }while (cin.fail() ||time < 1||time > 3);
             
             do{
                 cout << "\n\t\t\t\tChoose Your Cabin Class!!\n"<< endl;
                 cout << "\t\t\t\t1.Economy           MYR 1500" << endl;
                 cout << "\t\t\t\t2.Business          MYR 5200" << endl;
                 cout << "\t\t\t\t3.First Class       MYR 9000" << endl;
-                cout << "\t\t\t\tPlease enter your Choice: ";
+                cout << "\t\t\t\tPlease enter your choice: ";
                 cin >> cabin;
-                if (cin.fail())
+                if (cin.fail()||cabin < 1 || cabin >3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
-
-                else if (cabin < 1 || cabin >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (cabin < 1 || cabin >3);
+            }while (cin.fail() ||cabin < 1 || cabin >3);
 
             break;
         }
@@ -170,41 +149,29 @@ void flightBooking()
                 cout << "\nPlease select the time of the flight: ";
                 cin >> time;
 
-                if (cin.fail())
+                if (cin.fail() ||time < 1||time > 3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');;
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
-
-                else if (time < 1 || time >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (time < 1||time > 3);
+            }while (cin.fail() ||time < 1||time > 3);
             
             do{
                 cout << "\n\t\t\t\tChoose Your Cabin Class!!\n"<< endl;
                 cout << "\t\t\t\t1.Economy           MYR 8000" << endl;
                 cout << "\t\t\t\t2.Business          MYR 19000" << endl;
                 cout << "\t\t\t\t3.First Class       MYR 30000" << endl;
-                cout << "\nPlease enter your Choice: ";
+                cout << "\nPlease enter your choice: ";
                 cin >> cabin;
 
-                if (cin.fail())
+                if (cin.fail()||cabin < 1 || cabin >3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');;
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
-
-                else if (cabin < 1 || cabin >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (cabin < 1 || cabin >3);
+            }while (cin.fail() ||cabin < 1 || cabin >3);
 
             break;
             
@@ -220,41 +187,29 @@ void flightBooking()
                 cout << "\nPlease select the time of the flight: ";
                 cin >> time;
 
-                if (cin.fail())
+                if (cin.fail()||time < 1||time > 3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');;
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
-
-                else if (time < 1 || time >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (time < 1||time > 3);
+             }while (cin.fail() ||time < 1||time > 3);
             
             do{
                 cout << "\n\t\t\t\tChoose Your Cabin Class!!\n"<< endl;
                 cout << "\t\t\t\t1.Economy           MYR 80" << endl;
                 cout << "\t\t\t\t2.Business          MYR 130" << endl;
                 cout << "\t\t\t\t3.First Class       MYR 400" << endl;
-                cout << "\nPlease enter your Choice: ";
+                cout << "\nPlease enter your choice: ";
                 cin >> cabin;
 
-                if (cin.fail())
+                if (cin.fail()||cabin < 1 || cabin >3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
-
-                else if (cabin < 1 || cabin >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (cabin < 1 || cabin >3);
+            }while (cin.fail()||cabin < 1 || cabin >3 );
 
             break;
 
@@ -270,41 +225,31 @@ void flightBooking()
                 cout << "\nPlease select the time of the flight: ";
                 cin >> time;
 
-                if (cin.fail())
+                if (cin.fail() ||time < 1||time > 3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
 
-                else if (time < 1 || time >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (time < 1||time > 3);
+            }while (cin.fail() ||time < 1||time > 3);
             
             do{
                 cout << "\n\t\t\t\tChoose Your Cabin Class!!\n"<< endl;
                 cout << "\t\t\t\t1.Economy           MYR 60" << endl;
                 cout << "\t\t\t\t2.Business          MYR 300" << endl;
                 cout << "\t\t\t\t3. First Class      MYR 700" << endl;
-                cout << "\nPlease enter your Choice: ";
+                cout << "\nPlease enter your choice: ";
                 cin >> cabin;
 
-                if (cin.fail())
+                if (cin.fail()|| cabin < 1 || cabin >3)
                 {
                     cin.clear(); 
-                    cin.ignore(500, '\n');
+                    cin.ignore(numeric_limits <int>::max(), '\n');
                     cout <<"Invalid option. Please choose only 1-3.\n";
                 }
 
-                else if (cabin < 1 || cabin >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (cabin < 1 || cabin >3);
+            }while (cin.fail() ||cabin < 1 || cabin >3);
 
             break;
 
@@ -312,50 +257,35 @@ void flightBooking()
 
         case 6:
         {
-            do{
+            do {
                 cout << "\n\t\t\t\t Flight to Kota Kinabalu \n " << endl;
                 cout << "\t\t\t\t1. 8:55pm - 10:30pm " << endl;
                 cout << "\t\t\t\t2. 6:00am - 10:30am " << endl;
-                cout << "\t\t\t\t3. 10:55am -  1:45pm " << endl;
+                cout << "\t\t\t\t3.10:55am -  1:45pm " << endl;
                 cout << "\nPlease select the time of the flight: ";
                 cin >> time;
 
-                if (cin.fail())
-                {
-                    cin.clear(); 
-                    cin.ignore(500, '\n');
-                    cout <<"Invalid option. Please choose only 1-3.\n";
-                }
+            if (cin.fail() || time < 1 || time > 3) {
+                cin.clear();
+                cin.ignore(numeric_limits<int>::max(), '\n');
+                cout << "Invalid option. Please choose only 1-3.\n";
+            }
+            } while (time < 1 || time > 3);
 
-                else if (time < 1 || time >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (time < 1||time > 3);
-            
-            do{
+            do {
                 cout << "\n\t\t\t\tChoose Your Cabin Class!!\n"<< endl;
                 cout << "\t\t\t\t1.Economy           MYR 300" << endl;
                 cout << "\t\t\t\t2.Business          MYR 900" << endl;
                 cout << "\t\t\t\t3.First Class       MYR 1200" << endl;
-                cout << "\nPlease enter your Choice: ";
+                cout << "\nPlease enter your choice: ";
                 cin >> cabin;
 
-                if (cin.fail())
-                {
-                    cin.clear(); 
-                    cin.ignore(500, '\n');
-                    cout <<"Invalid option. Please choose only 1-3.\n";
-                }
-
-                else if (cabin < 1 || cabin >3)
-                {
-                    cout << "Invalid option. Please choose only 1-3.\n";
-                }
-
-            }while (cabin < 1 || cabin >3);
-
+            if (cin.fail() || cabin < 1 || cabin > 3) {
+                cin.clear();
+                cin.ignore(numeric_limits<int>::max(), '\n');
+                cout << "Invalid option. Please choose only 1-3.\n";
+             }
+            } while (cin.fail() ||cabin < 1 || cabin > 3);
             break;
         }
 
@@ -401,7 +331,7 @@ void flightBooking()
         if (cin.fail()||back < 1|| back >2)
         {
             cin.clear(); 
-            cin.ignore(500, '\n');
+            cin.ignore(numeric_limits <int>::max(), '\n');
             cout <<"Invalid option. Please choose only number.\n";
             validAction =false;
         }
@@ -437,7 +367,7 @@ void information()
     cout << "Gender(Male/Female):";
     cin >> gender;
     while (gender != "Male" && gender != "Female") {
-    cout << "Invalid gender. Enter Male or Female: ";
+    cout << "Invalid gender. \nEnter only Male or Female: ";
     cin >> gender;
     }
 
@@ -447,10 +377,11 @@ void information()
     if (cin.fail()||age < 1 || age > 100)
     {
         cin.clear(); 
-        cin.ignore(500, '\n');
-        cout <<"Invalid option. Please enter valid age.\n";
+        cin.ignore(numeric_limits <int>::max(), '\n');
+        cout <<"Invalid option. Please enter valid age!\n";
     }
-    }while (cin.fail()||age < 1 || age > 100);
+    }while(cin.fail()||age < 1 || age > 100);
+    
 
 
     cout << "\n These information are for ticket booking purpose only.\n" << endl;

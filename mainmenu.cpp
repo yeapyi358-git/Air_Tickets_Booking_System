@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <limits>
 
 using namespace std;
 
@@ -33,9 +34,11 @@ void mainMenu()
     cout << "\t\t\t\t*              MAIN MENU             *" << endl;
     cout << "\t\t\t\t*                                    *" << endl;
     cout << "\t\t\t\t**************************************" << endl;
-    cout << "\n\t\t\t\t1.Search for flight" << endl;
-    cout << "\t\t\t\t2.Book your flight tickets" << endl;
-    cout << "\t\t\t\t3.Log out\n" << endl;
+    cout << "\t\t\t\t|                                    |" << endl;
+    cout << "\t\t\t\t|       1.Search for flight          |" << endl;
+    cout << "\t\t\t\t|       2.Book your flight tickets   |" << endl;
+    cout << "\t\t\t\t|       3.Log out                    |" << endl;
+    cout << "\t\t\t\t|                                    |" << endl;
     cout << "\t\t\t\t**************************************" << endl;
     cout << "Please enter your choice: " ;
     cin >> choice;
@@ -44,7 +47,7 @@ void mainMenu()
     if (cin.fail())
     {
         cin.clear(); 
-        cin.ignore(500, '\n');
+        cin.ignore(numeric_limits <int>::max(), '\n');
     }
 
    

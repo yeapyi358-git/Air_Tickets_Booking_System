@@ -1,0 +1,9 @@
+Name: James Potter
+Gender: Male
+Age: 34
+-----------------------------
+Destination: New York
+Date: 25/03/2026
+Time Option: 11:55pm - 10:40am+1
+Cabin: Business
+

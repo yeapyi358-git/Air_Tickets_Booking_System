@@ -12,6 +12,7 @@
                 "mainmenu.cpp",
                 "flightsearch.cpp",
                 "flightbooking.cpp",
+                "Extraluggage.cpp",
                 "-Wall",
                 "-Wconversion"
             ],

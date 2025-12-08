@@ -1,8 +1,9 @@
 //Programmer : THAM WEI XIN 24301234
 //Purpose : let user book a flight and choose the destination,time, cabin class
-
 #include "flightbooking.hpp"
 #include "mainmenu.hpp"
+#include "ExtraLuggage.hpp"
+#include"foodnbeverage.hpp"
 
 #include <iostream>
 #include <fstream>
@@ -307,6 +308,8 @@ void flightBooking()
     cin >> date;
 
     information();
+    double ExtraLuggage_Price = calculateExtraLuggage();
+    double FoodnBeverage_Price = foodSelection();
 
     ofstream file("bookingDetails.txt", ios::app);
     file << "Destination: " << Flights[destination-1] << endl;
@@ -393,5 +396,12 @@ void information()
     file << "-----------------------------\n";
     file.close();
 
+    
+
 }
+
+//g++ mainmenu.cpp flightsearch.cpp flightbooking.cpp ExtraLuggage.cpp foodnbeverage.cpp main.cpp -o tryje.exe
+
+
+
 

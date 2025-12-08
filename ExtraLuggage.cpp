@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<iomanip>
+#include "ExtraLuggage.hpp"
 using namespace std;
 
 void showLuggageMenu() {
@@ -10,6 +11,7 @@ void showLuggageMenu() {
     cout << "1. 10 kg  - RM50\n";
     cout << "2. 20 kg  - RM90\n";
     cout << "3. 30 kg  - RM130\n";
+    cout << "4. NONE \n";
 }
 
 double calculateExtraLuggage() {
@@ -24,6 +26,7 @@ double calculateExtraLuggage() {
         case 1: fee = 50; break;
         case 2: fee = 90; break;
         case 3: fee = 130; break;
+        case 4: fee = 0; break;
         default:
             cout << "Invalid choice.\n";
             fee = 0;

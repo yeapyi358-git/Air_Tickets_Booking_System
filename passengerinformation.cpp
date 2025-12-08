@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-using namespace std;
+using namespace std; 
 
 void passengerInfo(string &name, string &passport, string &gender, int &age, string &nationality, string &visa) {
     cout << "\nEnter Passenger Name: ";

@@ -1,0 +1,2 @@
+void showLuggageMenu();
+double calculateExtraLuggage();
